@@ -1,13 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ikZ-gC-oU1">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="BMDOHYEON_otf.otf">
+            <string>BMDoHyeon-OTF</string>
+            <string>BMDoHyeon-OTF</string>
+            <string>BMDoHyeon-OTF</string>
+            <string>BMDoHyeon-OTF</string>
+            <string>BMDoHyeon-OTF</string>
+            <string>BMDoHyeon-OTF</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WeatherNow" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +27,261 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
+        <!--Page View Controller-->
+        <scene sceneID="hvM-Vi-k7D">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="VB6-Hw-JI4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jPC-mZ-JKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1223" y="317"/>
+        </scene>
+        <!--Weather View Controller-->
+        <scene sceneID="dLr-dy-zOl">
+            <objects>
+                <viewController storyboardIdentifier="WeatherViewController" id="ikZ-gC-oU1" customClass="WeatherViewController" customModule="WeatherNow" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="4pR-7J-aGh"/>
+                        <viewControllerLayoutGuide type="bottom" id="HF6-Uw-XHU"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lC4-Tx-2N4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5w-cV-MzB">
+                                <rect key="frame" x="552" y="32" width="28" height="28"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="G3y-LQ-LQn"/>
+                                    <constraint firstAttribute="height" constant="28" id="ocS-jx-veo"/>
+                                </constraints>
+                                <state key="normal" image="Setting"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="경기도 고양시 덕양구" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nj9-7a-vmQ">
+                                <rect key="frame" x="56" y="28" width="251" height="36"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="mTJ-8s-Jo4"/>
+                                    <constraint firstAttribute="width" constant="251" id="vHI-zC-bOK"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="17"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LocalInfo" translatesAutoresizingMaskIntoConstraints="NO" id="jDQ-v4-o7E">
+                                <rect key="frame" x="20" y="32" width="28" height="28"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="28" id="EsK-pE-qZI"/>
+                                    <constraint firstAttribute="height" constant="28" id="RaW-gI-s6i"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yQ-KQ-emK" customClass="WeatherContentView" customModule="WeatherNow" customModuleProvider="target">
+                                <rect key="frame" x="23" y="79" width="555" height="475"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="토요일" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M48-nz-Q0y">
+                                        <rect key="frame" x="216" y="8" width="122" height="34"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="BDe-Qk-h37"/>
+                                            <constraint firstAttribute="width" constant="122" id="imc-Tu-AFV"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="22"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="RfZ-GC-jHd">
+                                        <rect key="frame" x="197" y="79" width="160" height="160"/>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="160" id="GjR-Ts-JGL"/>
+                                            <constraint firstAttribute="height" constant="160" id="XAJ-Ss-v6a"/>
+                                        </constraints>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Ue5-Pv-9Xq">
+                                        <rect key="frame" x="8" y="386" width="93" height="81"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="19" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHq-0X-Ukm">
+                                                <rect key="frame" x="0.0" y="0.0" width="72" height="81"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="67"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96u-Q4-Hsm">
+                                                <rect key="frame" x="72" y="0.0" width="21" height="36"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="30"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <animations/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="81" id="OjU-4y-o6Q"/>
+                                            <constraint firstAttribute="width" constant="93" id="VI9-TD-eVn"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m59-Qg-wST">
+                                        <rect key="frame" x="398" y="392" width="149" height="70"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-Cg-4kq">
+                                                <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waterDrop" translatesAutoresizingMaskIntoConstraints="NO" id="mBd-xl-BVP">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <animations/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="DRr-cj-qkY"/>
+                                                            <constraint firstAttribute="width" constant="30" id="cG4-77-aKv"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100 %" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6Z-ww-GTd">
+                                                        <rect key="frame" x="40" y="0.0" width="75" height="30"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <animations/>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-L7-wLV">
+                                                <rect key="frame" x="0.0" y="40" width="149" height="30"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" translatesAutoresizingMaskIntoConstraints="NO" id="hdC-8Q-pG3">
+                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
+                                                        <animations/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="30" id="ARb-Tv-ShD"/>
+                                                            <constraint firstAttribute="height" constant="30" id="jY2-D1-DSr"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95 km/h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUN-FJ-TK8">
+                                                        <rect key="frame" x="40" y="0.0" width="109" height="30"/>
+                                                        <animations/>
+                                                        <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="25"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <animations/>
+                                            </stackView>
+                                        </subviews>
+                                        <animations/>
+                                    </stackView>
+                                </subviews>
+                                <animations/>
+                                <color key="backgroundColor" red="0.48092962746961448" green="0.11085701418296751" blue="0.72808493589743595" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="RfZ-GC-jHd" firstAttribute="centerX" secondItem="2yQ-KQ-emK" secondAttribute="centerX" id="4tQ-qn-bxe"/>
+                                    <constraint firstItem="M48-nz-Q0y" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="top" constant="8" id="B1Z-zJ-iET"/>
+                                    <constraint firstItem="M48-nz-Q0y" firstAttribute="centerX" secondItem="2yQ-KQ-emK" secondAttribute="centerX" id="JEJ-Kw-tJ3"/>
+                                    <constraint firstItem="Ue5-Pv-9Xq" firstAttribute="leading" secondItem="2yQ-KQ-emK" secondAttribute="leading" constant="8" id="Nhe-Jo-QyV"/>
+                                    <constraint firstItem="RfZ-GC-jHd" firstAttribute="top" secondItem="M48-nz-Q0y" secondAttribute="bottom" constant="37" id="Pce-ZP-frt"/>
+                                    <constraint firstAttribute="bottom" secondItem="m59-Qg-wST" secondAttribute="bottom" constant="13" id="Ryt-23-x0r"/>
+                                    <constraint firstAttribute="height" constant="283" id="ea0-8G-Cm4"/>
+                                    <constraint firstAttribute="trailing" secondItem="m59-Qg-wST" secondAttribute="trailing" constant="8" id="jDa-0B-PSZ"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ue5-Pv-9Xq" secondAttribute="bottom" constant="8" id="w6S-ag-yEz"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="ea0-8G-Cm4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=compact-widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="23" y="79" width="355" height="301"/>
+                                    <mask key="constraints">
+                                        <exclude reference="ea0-8G-Cm4"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="23" y="79" width="355" height="665"/>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="2yQ-KQ-emK" secondAttribute="trailing" constant="2" id="A3h-Ho-EKi"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="38" id="C4P-d7-jvf"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="46" id="FJd-Rq-8ty"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="68" id="Jxo-G3-rYk"/>
+                            <constraint firstItem="2yQ-KQ-emK" firstAttribute="top" secondItem="nj9-7a-vmQ" secondAttribute="bottom" constant="15" id="Lvq-wx-wEf"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="65" id="Qfi-bw-NWf"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="92" id="RrL-du-N2m"/>
+                            <constraint firstAttribute="trailing" secondItem="f5w-cV-MzB" secondAttribute="trailing" constant="20" id="T88-ym-PZ7"/>
+                            <constraint firstItem="f5w-cV-MzB" firstAttribute="top" secondItem="4pR-7J-aGh" secondAttribute="bottom" constant="12" id="Umu-iB-KSt"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="56" id="WAw-ql-46P"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="60" id="WyY-ci-Itj"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="60" id="aTK-8S-Npa"/>
+                            <constraint firstItem="nj9-7a-vmQ" firstAttribute="top" secondItem="4pR-7J-aGh" secondAttribute="bottom" constant="8" id="b1v-Kj-csP"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="38" id="bdV-tT-JbG"/>
+                            <constraint firstItem="jDQ-v4-o7E" firstAttribute="leading" secondItem="lC4-Tx-2N4" secondAttribute="leading" constant="20" id="cFH-WI-EES"/>
+                            <constraint firstItem="nj9-7a-vmQ" firstAttribute="leading" secondItem="jDQ-v4-o7E" secondAttribute="trailing" constant="8" id="dVf-VO-L3f"/>
+                            <constraint firstItem="2yQ-KQ-emK" firstAttribute="leading" secondItem="lC4-Tx-2N4" secondAttribute="leadingMargin" constant="3" id="dvh-Tc-1CT"/>
+                            <constraint firstItem="jDQ-v4-o7E" firstAttribute="top" secondItem="4pR-7J-aGh" secondAttribute="bottom" constant="12" id="rfT-se-D7U"/>
+                            <constraint firstItem="HF6-Uw-XHU" firstAttribute="top" secondItem="2yQ-KQ-emK" secondAttribute="bottom" constant="20" id="wi5-nI-mkT"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="C4P-d7-jvf"/>
+                                <exclude reference="Jxo-G3-rYk"/>
+                                <exclude reference="Qfi-bw-NWf"/>
+                                <exclude reference="RrL-du-N2m"/>
+                                <exclude reference="WAw-ql-46P"/>
+                                <exclude reference="WyY-ci-Itj"/>
+                                <exclude reference="aTK-8S-Npa"/>
+                                <exclude reference="bdV-tT-JbG"/>
+                                <exclude reference="wi5-nI-mkT"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="Qfi-bw-NWf"/>
+                                <exclude reference="WAw-ql-46P"/>
+                                <exclude reference="WyY-ci-Itj"/>
+                                <include reference="aTK-8S-Npa"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="C4P-d7-jvf"/>
+                                <exclude reference="bdV-tT-JbG"/>
+                                <exclude reference="wi5-nI-mkT"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="WAw-ql-46P"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="dayLabel" destination="M48-nz-Q0y" id="wdg-kN-Sga"/>
+                        <outlet property="humidityLabel" destination="n6Z-ww-GTd" id="QKa-ru-Wo9"/>
+                        <outlet property="localLabel" destination="nj9-7a-vmQ" id="O5m-jo-Izq"/>
+                        <outlet property="tempLabel" destination="dHq-0X-Ukm" id="8nI-gH-2uU"/>
+                        <outlet property="weatherImage" destination="RfZ-GC-jHd" id="GtX-Ng-RAu"/>
+                        <outlet property="windLabel" destination="QUN-FJ-TK8" id="Mwa-14-5st"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dO4-oC-Fnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1221" y="978"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="LocalInfo" width="64" height="64"/>
+        <image name="Setting" width="64" height="64"/>
+        <image name="Sun" width="512" height="512"/>
+        <image name="waterDrop" width="512" height="512"/>
+        <image name="wind" width="512" height="512"/>
+    </resources>
 </document>
