@@ -169,8 +169,8 @@
                                             <constraint firstAttribute="width" constant="93" id="VI9-TD-eVn"/>
                                         </constraints>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m59-Qg-wST">
-                                        <rect key="frame" x="398" y="469" width="149" height="70"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="m59-Qg-wST">
+                                        <rect key="frame" x="398" y="469" width="134" height="70"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gn8-Cg-4kq">
                                                 <rect key="frame" x="0.0" y="0.0" width="115" height="30"/>
@@ -193,8 +193,8 @@
                                                 </subviews>
                                                 <animations/>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-L7-wLV">
-                                                <rect key="frame" x="0.0" y="40" width="149" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1YP-L7-wLV">
+                                                <rect key="frame" x="0.0" y="40" width="134" height="30"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wind" translatesAutoresizingMaskIntoConstraints="NO" id="hdC-8Q-pG3">
                                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -204,8 +204,8 @@
                                                             <constraint firstAttribute="height" constant="30" id="jY2-D1-DSr"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95 km/h" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUN-FJ-TK8">
-                                                        <rect key="frame" x="40" y="0.0" width="109" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="95 m/s" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUN-FJ-TK8">
+                                                        <rect key="frame" x="40" y="0.0" width="94" height="30"/>
                                                         <animations/>
                                                         <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="25"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

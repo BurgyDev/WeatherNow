@@ -30,7 +30,7 @@ class WeatherViewController: UIViewController {
         
         self.tempLabel.text = "\(tempString)"
         self.humidityLabel.text = "\(humidityString) %"
-        self.windLabel.text = "\(windString) km/h"
+        self.windLabel.text = "\(windString) m/s"
     }
     
 }
