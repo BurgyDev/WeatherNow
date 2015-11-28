@@ -24,11 +24,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         downloadData()
     }
     
-/*    func updateUI(currentIndex: Int) {
-        
-        print(currentIndex)
-    }*/
-    
     func downloadData() {
         var i = 0
         let loopArray = [3,11,19,27]
@@ -40,7 +35,6 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
             print("count : \(count)")
             weatherArray[count].downloadWeatherData({ () -> () in
                 if self.downloadCount == 3 {
-                    print("asdf")
                     self.setPageView()
                 } else {
                     self.downloadCount++
@@ -78,11 +72,11 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         }
         
         let weatherVC : WeatherViewController = self.storyboard?.instantiateViewControllerWithIdentifier("WeatherViewController") as! WeatherViewController
-        weatherVC.weatherImageFile = weatherImages[index]
         print("temperature : \(weatherArray[index].temperature)")
         weatherVC.tempString = weatherArray[index].temperature
         weatherVC.humidityString = weatherArray[index].humidity
         weatherVC.windString = weatherArray[index].windSpeed
+        weatherVC.weatherImageFile = weatherArray[index].weatherState
         
         weatherVC.pageIndex = index
         

@@ -137,7 +137,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2yQ-KQ-emK" customClass="WeatherContentView" customModule="WeatherNow" customModuleProvider="target">
                                 <rect key="frame" x="23" y="28" width="555" height="552"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sun" translatesAutoresizingMaskIntoConstraints="NO" id="RfZ-GC-jHd">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Clear" translatesAutoresizingMaskIntoConstraints="NO" id="RfZ-GC-jHd">
                                         <rect key="frame" x="197" y="91" width="160" height="160"/>
                                         <animations/>
                                         <constraints>
@@ -214,7 +214,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96u-Q4-Hsm">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="o " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96u-Q4-Hsm">
                                                 <rect key="frame" x="87" y="0.0" width="18" height="36"/>
                                                 <animations/>
                                                 <fontDescription key="fontDescription" name="BMDoHyeon-OTF" family="BM DoHyeon OTF" pointSize="30"/>
@@ -317,7 +317,7 @@
                         </variation>
                     </view>
                     <connections>
-                        <outlet property="dayLabel" destination="M48-nz-Q0y" id="wdg-kN-Sga"/>
+                        <outlet property="dayLabel" destination="M48-nz-Q0y" id="aWe-Ig-O20"/>
                         <outlet property="humidityLabel" destination="n6Z-ww-GTd" id="QKa-ru-Wo9"/>
                         <outlet property="tempLabel" destination="dHq-0X-Ukm" id="8nI-gH-2uU"/>
                         <outlet property="weatherImage" destination="RfZ-GC-jHd" id="GtX-Ng-RAu"/>
@@ -330,9 +330,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Clear" width="512" height="512"/>
         <image name="LocalInfo" width="64" height="64"/>
         <image name="Setting" width="64" height="64"/>
-        <image name="Sun" width="512" height="512"/>
         <image name="waterDrop" width="512" height="512"/>
         <image name="wind" width="512" height="512"/>
     </resources>

@@ -13,7 +13,16 @@ class Weather {
     private var _temperature: String!
     private var _humidity: String!
     private var _windSpeed: String!
+    private var _weatherState: String!
     private var _dayId: Int!
+    
+    var weatherState: String {
+        if let state = _weatherState {
+            return state
+        } else {
+            return "Sun"
+        }
+    }
     
     var temperature: String {
         if let temp = _temperature {
@@ -50,7 +59,7 @@ class Weather {
     func downloadWeatherData(completed: DownloadComplete) {
         let url = NSURL(string: URL_DEFAULT)!
         
-        Alamofire.request(.GET, url, parameters: ["q" : "Seoul,kr", "appid" : "4e095de545b0efd12556be0a828ae5bc", "mode" : "json"]).responseJSON { (response) in
+        Alamofire.request(.GET, url, parameters: ["q" : "Seoul", "appid" : "4e095de545b0efd12556be0a828ae5bc", "mode" : "json", "units" : "metric"]).responseJSON { (response) in
             let result = response.result
             
             
@@ -60,7 +69,7 @@ class Weather {
                     if let main = list[self._dayId]["main"] as? Dictionary<String,AnyObject> {
                         if let temp = main["temp"] {
                             
-                            self._temperature = "\((temp as! Int) - 273)"
+                            self._temperature = "\((temp as! Int))"
                             print(self._temperature)
                         }
                         
@@ -69,12 +78,22 @@ class Weather {
                             print(self._humidity)
                         }
                     }
+                    if let weather = list[self._dayId]["weather"] as? [Dictionary<String,AnyObject>] {
+                        if let state = weather[0]["main"] {
+                            self._weatherState = "\(state)"
+                            print(self._weatherState)
+                        }
+                    }
                     
                     if let wind = list[self._dayId]["wind"] as? Dictionary<String,AnyObject> {
                         if let speed = wind["speed"] {
                             self._windSpeed = "\(speed)"
                             print(self._windSpeed)
                         }
+                    }
+                    
+                    if let date = list[self._dayId]["dt_txt"] {
+                        print(date)
                     }
                     completed()
                 }
