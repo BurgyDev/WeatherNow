@@ -11,48 +11,78 @@ import UIKit
 class ViewController: UIViewController, UIPageViewControllerDataSource {
     
     var pageViewController: UIPageViewController!
-    var weatherImages: NSArray!
-    var temperature: NSArray!
-    var humidity: NSArray!
-    var windPower: NSArray!
+    var weatherImages: [String]!
+    var temperature: [String]!
+    var humidity: [String]!
+    var windPower: [String]!
     
+    var weatherArray = [Weather]()
+    var downloadCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        downloadData()
+    }
+    
+/*    func updateUI(currentIndex: Int) {
         
-        self.weatherImages = NSArray(objects: "Sun","Snow","Sun","Sun")
+        print(currentIndex)
+    }*/
+    
+    func downloadData() {
+        var i = 0
+        let loopArray = [3,11,19,27]
         
-        self.temperature = NSArray(objects: "15","14","13","-1")
-        self.humidity = NSArray(objects: "98","89","70","55")
-        self.windPower = NSArray(objects: "38","23","25","34")
+        for i=0; i<4; i+=1{
+            print(i)
+            weatherArray.append(Weather(dayId: loopArray[i]))
+            let count = self.weatherArray.count-1
+            print("count : \(count)")
+            weatherArray[count].downloadWeatherData({ () -> () in
+                if self.downloadCount == 3 {
+                    print("asdf")
+                    self.setPageView()
+                } else {
+                    self.downloadCount++
+                    print("count : \(self.downloadCount)")
+                }
+            })
+        }
+    }
+    
+    func setPageView() {
+        
+        self.weatherImages = ["Sun","Sun","Snow","Sun"]
         
         self.pageViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PageViewController") as! UIPageViewController
         
         self.pageViewController.dataSource = self
         
-        let startVC = self.viewControllerAtIndex(0) as WeatherViewController
-        let memberViewControllers = NSArray(objects: startVC)
+        if let startVC = self.viewControllerAtIndex(0) as? WeatherViewController {
+            let memberViewControllers = NSArray(objects: startVC)
         
-        self.pageViewController.setViewControllers(memberViewControllers as! [WeatherViewController], direction: .Forward, animated: true, completion: nil)
+            self.pageViewController.setViewControllers(memberViewControllers as! [WeatherViewController], direction: .Forward, animated: true, completion: nil)
         
-        self.pageViewController.view.frame = CGRectMake(0, 60, self.view.frame.width, self.view.frame.size.height - 60)
+            self.pageViewController.view.frame = CGRectMake(0, 60, self.view.frame.width, self.view.frame.size.height - 60)
         
-        self.addChildViewController(self.pageViewController)
-        self.view.addSubview(self.pageViewController.view)
-        self.pageViewController.didMoveToParentViewController(self)
+            self.addChildViewController(self.pageViewController)
+            self.view.addSubview(self.pageViewController.view)
+            self.pageViewController.didMoveToParentViewController(self)
+        }
     }
     
     func viewControllerAtIndex(index : Int ) -> WeatherViewController {
-        if (self.temperature.count == 0 || index >= self.temperature.count ) {
+        
+        if (self.weatherArray.count == 0 || index >= self.weatherArray.count ) {
             return WeatherViewController()
         }
         
         let weatherVC : WeatherViewController = self.storyboard?.instantiateViewControllerWithIdentifier("WeatherViewController") as! WeatherViewController
-        
-        weatherVC.weatherImageFile = weatherImages[index] as? String
-        weatherVC.tempString = temperature[index] as? String
-        weatherVC.humidityString = humidity[index] as? String
-        weatherVC.windString = windPower[index] as? String
+        weatherVC.weatherImageFile = weatherImages[index]
+        print("temperature : \(weatherArray[index].temperature)")
+        weatherVC.tempString = weatherArray[index].temperature
+        weatherVC.humidityString = weatherArray[index].humidity
+        weatherVC.windString = weatherArray[index].windSpeed
         
         weatherVC.pageIndex = index
         
@@ -85,7 +115,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         
         index++
         
-        if (index == self.temperature.count) {
+        if (index == self.weatherArray.count) {
             return nil
         }
         
@@ -93,7 +123,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     }
     
     func presentationCountForPageViewController(pageViewController: UIPageViewController) -> Int {
-        return self.temperature.count
+        return self.weatherArray.count
     }
     
     func presentationIndexForPageViewController(pageViewController: UIPageViewController) -> Int {
