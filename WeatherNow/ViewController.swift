@@ -15,14 +15,31 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
     var temperature: [String]!
     var humidity: [String]!
     var windPower: [String]!
+    var dayArray: [String]!
     
     var weatherArray = [Weather]()
     var downloadCount = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        calculateDay()
         downloadData()
     }
+    
+    func calculateDay() {
+        
+        var i : Int = 0
+        let timeStamp = NSTimeIntervalSince1970
+        let date = NSDate(timeIntervalSince1970: timeStamp)
+        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
+        let weekDayComponent = cal?.components(NSCalendarUnit.Weekday, fromDate: date)
+        
+        let today = weekDayComponent!.weekday
+        
+        dayArray = ["\(today)", "\(today+1)", "\(today+2)", "\(today+3)"]
+        
+    }
+
     
     func downloadData() {
         var i = 0
@@ -73,6 +90,7 @@ class ViewController: UIViewController, UIPageViewControllerDataSource {
         
         let weatherVC : WeatherViewController = self.storyboard?.instantiateViewControllerWithIdentifier("WeatherViewController") as! WeatherViewController
         print("temperature : \(weatherArray[index].temperature)")
+        weatherVC.dayString = dayArray[index]
         weatherVC.tempString = weatherArray[index].temperature
         weatherVC.humidityString = weatherArray[index].humidity
         weatherVC.windString = weatherArray[index].windSpeed

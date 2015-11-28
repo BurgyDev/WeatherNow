@@ -17,6 +17,7 @@ class WeatherViewController: UIViewController {
     @IBOutlet var humidityLabel: UILabel!
     @IBOutlet var windLabel: UILabel!
     
+    var dayString: String!
     var weatherImageFile : String!
     var humidityString: String!
     var windString: String!
@@ -26,23 +27,16 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.dayLabel.text = self.calculateDay()
+        self.dayLabel.text = self.calculateDay(Int(dayString)!)
         self.weatherImage.image = UIImage(named: self.weatherImageFile)
-        
         self.tempLabel.text = "\(tempString)"
         self.humidityLabel.text = "\(humidityString) %"
         self.windLabel.text = "\(windString) m/s"
     }
     
-    func calculateDay() -> String {
-        let timeStamp = NSTimeIntervalSince1970
-        let date = NSDate(timeIntervalSince1970: timeStamp)
-        let cal = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)
-        let weekDayComponent = cal?.components(NSCalendarUnit.Weekday, fromDate: date)
+    func calculateDay(day: Int) -> String {
         
-        let today = weekDayComponent?.weekday
-        
-        switch(today!){
+        switch(day){
             
         case 1: return "Friday"
         case 2: return "Saturday"
