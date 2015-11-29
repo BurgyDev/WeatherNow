@@ -59,7 +59,7 @@ class Weather {
     func downloadWeatherData(completed: DownloadComplete) {
         let url = NSURL(string: URL_DEFAULT)!
         
-        Alamofire.request(.GET, url, parameters: ["q" : "Seoul", "appid" : "4e095de545b0efd12556be0a828ae5bc", "mode" : "json", "units" : "metric"]).responseJSON { (response) in
+        Alamofire.request(.GET, url, parameters: ["q" : "Seoul,kr", "appid" : "4e095de545b0efd12556be0a828ae5bc", "mode" : "json", "units" : "metric"]).responseJSON { (response) in
             let result = response.result
             
             
